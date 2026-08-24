@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aca-cicd-demo
+
+app:
+  service-name: ${APP_SERVICE_NAME:aca-cicd-demo}
+  environment: ${APP_ENVIRONMENT:local}
+  message: ${APP_MESSAGE:Hello from Azure Container Apps}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
